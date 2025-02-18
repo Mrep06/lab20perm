@@ -142,7 +142,6 @@ void Unit::equip(Equipment* newequipment) {
     equipment = newequipment;
 }
 
-
 //Equipments'func
 Equipment::Equipment(int x = 0,int y = 0,int z = 0){
 	hpmax = x; atk = y; def = z;

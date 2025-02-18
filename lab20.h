@@ -12,7 +12,7 @@ class Equipment{
 	int atk;
 	int def;
 	public:
-		Equipment(int,int,int);
+		Equipment(int ,int ,int );
 		vector<int> getStat();			
 };
 
@@ -122,18 +122,31 @@ bool Unit::isDead(){
 	else return false;
 }
 
-void Unit::equip(Equipment newequipment){
-	vector<int> x = newequipment->getStat();
-	vector<int> y = *equipment->getStat();
-	hpmax += x[0];
-	atk += x[1];
-	def += x[2];
-	hpmax -= y[0];
-	atk -= y[1];
-	def -= y[2];
+void Unit::equip(Equipment* newequipment) {
+    if (equipment != nullptr) {
+        vector<int> oldStats = equipment->getStat();
+        hpmax -= oldStats[0];
+        atk -= oldStats[1];
+        def -= oldStats[2];
+    }
+
+    vector<int> newStats = newequipment->getStat();
+    hpmax += newStats[0];
+    atk += newStats[1];
+    def += newStats[2];
+
+    if (hp > hpmax) {
+        hp = hpmax;
+    }
+
+    equipment = newequipment;
 }
 
+
 //Equipments'func
+Equipment::Equipment(int x = 0,int y = 0,int z = 0){
+	hpmax = x; atk = y; def = z;
+}
 vector<int> Equipment::getStat(){
 	vector<int> item;
 	item.push_back(hpmax);
@@ -201,4 +214,3 @@ void playerLose(){
 	cout << "*                                                     *\n";
 	cout << "*******************************************************\n";
 };
-

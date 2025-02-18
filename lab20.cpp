@@ -1,5 +1,5 @@
 // [Missing Code 1] Include header file.
-  
+#include "lab20.h"
 int main(){
 	srand(time(0));
 	
@@ -10,7 +10,9 @@ int main(){
 	
 	Equipment sword(0,8,4);
 	// [Missing Code 2]  Create Equipment axes, shield and armor here
-
+	Equipment axes(0,8,4);
+	Equipment shield(0,2,10);
+	Equipment armor(6,0,6);
 	
 	
 	char eq;	

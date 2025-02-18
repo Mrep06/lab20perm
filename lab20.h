@@ -122,15 +122,24 @@ bool Unit::isDead(){
 	else return false;
 }
 
-void equip(Equipment *item){
-	hpmax += Equipment.hpmax;
-	atk += Equipment.atk;
-	def += Equipment.def;
+void Unit::equip(Equipment newequipment){
+	vector<int> x = newequipment->getStat();
+	vector<int> y = *equipment->getStat();
+	hpmax += x[0];
+	atk += x[1];
+	def += x[2];
+	hpmax -= y[0];
+	atk -= y[1];
+	def -= y[2];
 }
 
 //Equipments'func
 vector<int> Equipment::getStat(){
-
+	vector<int> item;
+	item.push_back(hpmax);
+	item.push_back(atk);
+	item.push_back(def);
+	return item;
 }
 
 void drawScene(char p_action,int p,char m_action,int m){

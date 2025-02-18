@@ -10,9 +10,9 @@ int main(){
 	
 	Equipment sword(0,8,4);
 	// [Missing Code 2]  Create Equipment axes, shield and armor here
-	Equipment axes(0,8,4);
-	Equipment shield(0,2,10);
-	Equipment armor(6,0,6);
+	Equipment axes(0,16,-3);
+	Equipment shield(0,-1,7);
+	Equipment armor(25,-2,2);
 	
 	
 	char eq;	
@@ -20,8 +20,18 @@ int main(){
 	cout << "Please selet your equipment: ";
 	cin >> eq;
 	// [Missing Code 3] Equip a selected equipment to the hero. 
-
-	
+	if(eq == '1'){
+		hero.equip(&sword);
+	}
+	if(eq == '2'){
+		hero.equip(&axes);
+	}
+	if(eq == '3'){
+		hero.equip(&shield);
+	}
+	if(eq == '4'){
+		hero.equip(&armor);
+	}
 	
 	Unit mons("Monster","Kraken");
 	
@@ -60,7 +70,18 @@ int main(){
 			cout << "Please select your equipment: ";
 			cin >> eq;
 			// [Missing Code 3] Equip a selected equipment to the hero.
-
+			if(eq == '1'){
+				hero.equip(&sword);
+			}
+			if(eq == '2'){
+				hero.equip(&axes);
+			}
+			if(eq == '3'){
+				hero.equip(&shield);
+			}
+			if(eq == '4'){
+				hero.equip(&armor);
+			}
 			
 		}
 		
